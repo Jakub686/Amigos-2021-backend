@@ -1,4 +1,4 @@
-package com.amigo2021.AngularSpringBootAmigo2021.resource;
+package com.amigo2021.AngularSpringBootAmigo2021.controller;
 
 import com.amigo2021.AngularSpringBootAmigo2021.model.Employee;
 import com.amigo2021.AngularSpringBootAmigo2021.service.EmployeeService;
@@ -10,10 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employee")
-public class EmployeeResource {
+public class EmployeeController {
     private final EmployeeService employeeService;
 
-    public EmployeeResource(EmployeeService employeeService) {
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
