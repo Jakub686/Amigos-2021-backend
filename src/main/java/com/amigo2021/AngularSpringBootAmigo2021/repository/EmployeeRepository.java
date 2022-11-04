@@ -1,11 +1,11 @@
-package com.amigo2021.AngularSpringBootAmigo2021.repo;
+package com.amigo2021.AngularSpringBootAmigo2021.repository;
 
 import com.amigo2021.AngularSpringBootAmigo2021.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface EmployeeRepo extends JpaRepository<Employee, Long> {
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     void deleteEmployeeById(Long id);
 
     Optional<Employee> findEmployeeById(Long id);

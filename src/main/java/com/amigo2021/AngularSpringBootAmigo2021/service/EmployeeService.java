@@ -2,7 +2,7 @@ package com.amigo2021.AngularSpringBootAmigo2021.service;
 
 import com.amigo2021.AngularSpringBootAmigo2021.exception.UserNotFoundException;
 import com.amigo2021.AngularSpringBootAmigo2021.model.Employee;
-import com.amigo2021.AngularSpringBootAmigo2021.repo.EmployeeRepo;
+import com.amigo2021.AngularSpringBootAmigo2021.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,32 +13,32 @@ import java.util.UUID;
 @Service
 @Transactional
 public class EmployeeService {
-    private final EmployeeRepo employeeRepo;
+    private final EmployeeRepository employeeRepository;
 
     @Autowired
-    public EmployeeService(EmployeeRepo employeeRepo) {
-        this.employeeRepo = employeeRepo;
+    public EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
     public Employee addEmployee(Employee employee) {
         employee.setEmployeeCode(UUID.randomUUID().toString());
-        return employeeRepo.save(employee);
+        return employeeRepository.save(employee);
     }
 
     public List<Employee> findAllEmployees() {
-        return employeeRepo.findAll();
+        return employeeRepository.findAll();
     }
 
     public Employee updateEmployee(Employee employee) {
-        return employeeRepo.save(employee);
+        return employeeRepository.save(employee);
     }
 
     public Employee findEmployeeById(Long id) {
-        return employeeRepo.findEmployeeById(id)
+        return employeeRepository.findEmployeeById(id)
                 .orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
     }
 
     public void deleteEmployee(Long id){
-        employeeRepo.deleteEmployeeById(id);
+        employeeRepository.deleteEmployeeById(id);
     }
 }
